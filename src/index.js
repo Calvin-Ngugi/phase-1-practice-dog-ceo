@@ -2,7 +2,7 @@ console.log('%c HI', 'color: firebrick')
 
 let breeds = [];
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded',() => {
     loadImages();
     loadBreedOptions();
 });
@@ -24,8 +24,7 @@ function addImage(dogPicUrl) {
 }
 
 function loadBreedOptions() {
-    const breedUrl = 'https://dog.ceo/api/breeds/list/all'
-    fetch(breedUrl)
+    fetch('https://dog.ceo/api/breeds/list/all')
         .then(res => res.json())
         .then(results => {
 
@@ -55,7 +54,7 @@ function selectBreedsStartingWith(letter) {
 
 function addBreedSelectListener() {
     let breedDropdown = document.querySelector('#breed-dropdown');
-    breedDropdown.addEventListener('change', function (event) {
+    breedDropdown.addEventListener('change', (event) => {
         selectBreedsStartingWith(event.target.value);
     });
 }
